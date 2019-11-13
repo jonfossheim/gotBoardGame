@@ -12,9 +12,9 @@ export default class Player1 extends VuexModule {
 	}
 
 	@action
-	async getCharacter() {
-		const { data } = await Axios.get('https://anapioficeandfire.com/api/characters?name=Viserys+Targaryen')
-		this.setCharacter(data[0])
+	async getCharacter(id: any) {
+		const { data } = await Axios.get('https://anapioficeandfire.com/api/characters/' + id)
+		this.setCharacter(data)
 	}
 
 	@mutation

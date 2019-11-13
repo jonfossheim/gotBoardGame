@@ -19,7 +19,7 @@
 		}
 
 		mounted() {
-			vxm.player1.getCharacter()
+			vxm.player1.getCharacter(764)
 		}
 	}
 </script>
