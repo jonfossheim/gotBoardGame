@@ -1,7 +1,12 @@
 <template>
 	<div>
-		<h1>{{ player1.name }}</h1>
-		<p>{{ player1.title }}</p>
+		<button @click="assignCharacter(823)">
+			Petyr
+		</button>
+		<div>
+			<h1>{{ player1.name }}</h1>
+			<h2>{{ player1.title }}</h2>
+		</div>
 	</div>
 </template>
 
@@ -18,8 +23,8 @@
 			return vxm.player1.player1
 		}
 
-		mounted() {
-			vxm.player1.getCharacter(764)
+		assignCharacter(id: any) {
+			vxm.player1.getCharacter(id)
 		}
 	}
 </script>
