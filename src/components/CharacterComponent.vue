@@ -1,8 +1,6 @@
 <template>
 	<div>
 		<h1>{{ character.name }}</h1>
-		<h3>{{ character.title }}</h3>
-		<p>{{ character.tilePos }}</p>
 		<DiceComponent @click="updatePos(result)" />
 		<button @click="updatePos(3)">
 			update
