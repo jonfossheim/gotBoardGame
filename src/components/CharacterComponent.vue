@@ -1,27 +1,20 @@
 <template>
 	<div>
-		<h1>{{ character.name }}</h1>
-		<DiceComponent @click="updatePos(result)" />
-		<button @click="updatePos(3)">
-			update
-		</button>
+		<h1>{{ player1.name }}</h1>
+		<h2>{{ player1.title }}</h2>
+		<img :src="player1.icon">
 	</div>
 </template>
 
 <script lang="ts">
 	import { Component, Prop, Vue } from 'vue-property-decorator'
-	import DiceComponent from '@/components/DiceComponent.vue'
+	import { vxm } from '@/store'
+
 	@Component({
-		components: { DiceComponent }
 	})
 	export default class CharacterComponent extends Vue {
-		@Prop()
-		character!: any
-		result!: number
-
-		updatePos(result: number) {
-			this.character.tilePos = this.character.tilePos + result
-			return this.character.tilePos
+		get player1() {
+			return vxm.player1.player1
 		}
 	}
 </script>

@@ -1,34 +1,44 @@
 <template>
-	<div>
-		<button @click="assignCharacter(823)">
-			Petyr
-		</button>
-		<div>
-			<h1>{{ player1.name }}</h1>
-			<h2>{{ player1.title }}</h2>
-		</div>
+	<div class="selectComponents">
+		<CharacterSelectComponent
+			v-for="character in characters"
+			:key="character.id"
+			class="selectComponent"
+			:character="character"
+		/>
 	</div>
 </template>
 
 <script lang="ts">
 	import { Component, Vue } from 'vue-property-decorator'
 	import CharacterComponent from '@/components/CharacterComponent.vue'
-	import { vxm } from '@/store'
+	import CharacterSelectComponent from '@/components/CharacterSelectComponent.vue'
 
 	@Component({
-		components: { CharacterComponent }
+		components: { CharacterSelectComponent, CharacterComponent }
 	})
 	export default class CharacterSelect extends Vue {
-		get player1() {
-			return vxm.player1.player1
-		}
-
-		assignCharacter(id: any) {
-			vxm.player1.getCharacter(id)
-		}
+		characters = [
+			{
+				id: 823,
+				icon: './characters/petyr.jpg',
+				name: 'Petyr'
+			},
+			{
+				id: 1319,
+				icon: './characters/davos.jpg',
+				name: 'Davos'
+			}
+		]
 	}
 </script>
 
 <style scoped lang="sass">
+	.selectComponents
+		display: flex
+		flex-direction: row
+		width: 80%
+		margin: 0 auto
+		justify-content: space-around
 
 </style>

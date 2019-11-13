@@ -3,6 +3,7 @@
 		<h1>home</h1>
 		<DiceComponent />
 		<CharacterSelect />
+		<CharacterComponent />
 	</div>
 </template>
 
@@ -10,8 +11,9 @@
 	import { Component, Vue } from 'vue-property-decorator'
 	import CharacterSelect from '@/components/CharacterSelect.vue'
 	import DiceComponent from '@/components/DiceComponent.vue'
+	import CharacterComponent from '@/components/CharacterComponent.vue'
 	@Component({
-		components: { DiceComponent, CharacterSelect }
+		components: { CharacterComponent, DiceComponent, CharacterSelect }
 	})
 	export default class Home extends Vue {
 	}
