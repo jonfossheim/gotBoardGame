@@ -17,7 +17,7 @@
 	import { vxm } from '@/store'
 
 	@Component({})
-	export default class CharacterComponent extends Vue {
+	export default class Player1Component extends Vue {
 		get player1() {
 			return vxm.player1.player1
 		}

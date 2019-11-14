@@ -13,8 +13,18 @@
 		@Prop()
 		character!: any
 
+		get characters() {
+			return vxm.characters.characters
+		}
+
+		setPlayer2() {
+			let id = this.characters[Math.floor(Math.random() * this.characters.length)].id
+			vxm.player2.getCharacter(id)
+		}
+
 		assignCharacter(id: any) {
 			vxm.player1.getCharacter(id)
+			this.setPlayer2()
 		}
 	}
 </script>

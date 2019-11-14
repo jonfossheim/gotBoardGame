@@ -11,7 +11,7 @@
 
 <script lang="ts">
 	import { Component, Vue } from 'vue-property-decorator'
-	import CharacterComponent from '@/components/CharacterComponent.vue'
+	import CharacterComponent from '@/components/playercomponents/Player1Component.vue'
 	import CharacterSelectComponent from '@/components/CharacterSelectComponent.vue'
 	import { vxm } from '@/store'
 
