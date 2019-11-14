@@ -29,5 +29,5 @@
 	display: flex
 	flex-direction: row
 	justify-content: space-around
-	margin-bottom: 2em
+	margin-bottom: 1.5em
 </style>
