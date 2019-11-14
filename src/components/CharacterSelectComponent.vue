@@ -1,9 +1,6 @@
 <template>
-	<div class="characterSelectCard">
-		<img class="icon" :src="character.icon">
-		<button class="btn" @click="assignCharacter(character.id)">
-			<span> {{ character.name }} </span>
-		</button>
+	<div class="iconContainer">
+		<img class="icon " :src="character.icon" @click="assignCharacter(character.id)">
 	</div>
 </template>
 
@@ -23,15 +20,11 @@
 </script>
 
 <style scoped lang="sass">
-.characterSelectCard
-	height: 100px
-	width: 100px
-	padding: 0.5em
-	margin: 2em
-	display: flex
-	flex-direction: column
-
-.icon
-	width: 75px
-	margin: 0 auto
+	.iconContainer
+		width: 200px
+		margin: 1em
+	.icon
+		width: 100%
+		margin: 0 auto
+		border-radius: 50px
 </style>
