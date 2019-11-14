@@ -9,7 +9,7 @@ export default class Player2 extends VuexModule {
 		birth: '',
 		icon: '',
 		tilePos: 0,
-		turn: false
+		turn: true
 	}
 
 	@action
