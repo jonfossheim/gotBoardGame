@@ -38,4 +38,8 @@
 	flex-direction: column
 	justify-content: center
 	text-align: center
+	flex: 1
+	border-right: 2px solid #2c3e50
+	border-left: 2px solid #2c3e50
+
 </style>

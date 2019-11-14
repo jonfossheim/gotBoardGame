@@ -38,7 +38,6 @@
 			flex-direction: row-reverse
 			flex-wrap: wrap
 			margin: 1em
-			width: 600px
 			text-align: right
 
 		.character__inner--details

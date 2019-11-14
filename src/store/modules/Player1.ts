@@ -55,4 +55,7 @@ export default class Player1 extends VuexModule {
 			this.player1.icon = './characters/brienne.png'
 		}
 	}
+	updatePos(roll: number) {
+		this.player1.tilePos = this.player1.tilePos + roll
+	}
 }

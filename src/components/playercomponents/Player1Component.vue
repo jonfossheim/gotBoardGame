@@ -38,7 +38,6 @@
 		flex-direction: row
 		flex-wrap: wrap
 		margin: 1em
-		width: 600px
 
 	.character__inner--details
 		padding-left: 1em

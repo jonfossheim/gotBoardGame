@@ -1,10 +1,10 @@
 <template>
 	<div>
-		<button @click="dice.roll(), newTurn()">
+		<button @click="rollDice()">
 			<span> Roll the dice </span>
 		</button>
 		<br>
-		<span>Roll Result: {{ dice.result }}</span>
+		<span>You rolled: {{ result }}</span>
 		<br>
 		<span v-if="turn">It is {{ player1.name }}'s turn.</span>
 		<span v-if="!turn">It is {{ player2.name }}'s turn.</span>
@@ -17,15 +17,7 @@
 
 	@Component
 	export default class DiceComponent extends Vue {
-		dice = {
-			sides: 6,
-			result: 0,
-			roll: function () {
-				this.result = Math.floor(Math.random() * this.sides) + 1
-				return this.result
-			}
-		}
-
+		result = 0
 		turn = true
 
 		get player1() {
@@ -38,6 +30,24 @@
 
 		newTurn () {
 			this.turn = !this.turn
+		}
+		rollDice () {
+			this.result = Math.floor(Math.random() * 6) + 1
+			if (this.result === 6) {
+				if (this.turn) {
+					vxm.player1.updatePos(this.result)
+				} else {
+					vxm.player2.updatePos(this.result)
+				}
+			} else {
+				if (this.turn) {
+					vxm.player1.updatePos(this.result)
+				} else {
+					vxm.player2.updatePos(this.result)
+				}
+				this.newTurn()
+			}
+			return this.result
 		}
 	}
 </script>
