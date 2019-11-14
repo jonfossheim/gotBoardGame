@@ -7,6 +7,7 @@
 				<h2>{{ player1.title }}</h2>
 				<p>{{ player1.birth }} </p>
 			</div>
+			<button><span>roll me</span></button>
 		</div>
 	</div>
 </template>
