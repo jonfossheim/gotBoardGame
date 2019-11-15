@@ -8,8 +8,7 @@ export default class Player1 extends VuexModule {
 		title: '',
 		birth: '',
 		icon: '',
-		tilePos: 0,
-		turn: false
+		tilePos: 0
 	}
 
 	@action
@@ -23,6 +22,7 @@ export default class Player1 extends VuexModule {
 		this.player1.name = character.name
 		this.player1.title = character.aliases[0]
 		this.player1.birth = 'Birth: ' + character.born
+		this.player1.tilePos = 0
 
 		if (this.player1.name === 'Petyr Baelish') {
 			this.player1.icon = './characters/petyr.png'

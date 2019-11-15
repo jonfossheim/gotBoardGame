@@ -1,6 +1,10 @@
 <template>
 	<div class="tilesContainer">
-		<TileComponent v-for="tile in tiles" :key="tile.id" :tile="tile" />
+		<TileComponent
+			v-for="tile in tiles"
+			:key="tile.id"
+			:tile="tile"
+		/>
 	</div>
 </template>
 

@@ -1,8 +1,9 @@
 <template>
 	<div class="home">
-		<h3>Select your character below</h3>
 		<div class="confirmContainer">
-			<CharacterConfirm v-if="player1.name"/>
+			<CharacterConfirm
+				v-if="player1.name"
+			/>
 		</div>
 		<CharacterSelect />
 	</div>
