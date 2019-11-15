@@ -31,7 +31,7 @@
 
 <style scoped lang="sass">
 	.iconContainer
-		width: 200px
+		width: 175px
 		margin: 1em
 	.icon
 		width: 100%

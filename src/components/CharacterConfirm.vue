@@ -1,20 +1,30 @@
 <template>
 	<div>
-		<h3>You have selected:</h3>
-		<div class="imgContainer">
-			<img class="icon" :src="player1.icon">
+		<div class="confirmContainer">
+			<div class="imgContainer">
+				<img class="icon" :src="player1.icon">
+			</div>
+			<div class="selectDetails">
+				<p>You have selected:</p>
+				<p> {{ player1.name }}</p>
+			</div>
 		</div>
-		<RouterLink to="/board">
-			Confirm Selection
-		</RouterLink>
+		<div class="confirm">
+			<RoundedButton to="/board">
+				<span>Confirm Selection</span>
+			</RoundedButton>
+		</div>
 	</div>
 </template>
 
 <script lang="ts">
 	import { Component, Vue } from 'vue-property-decorator'
 	import { vxm } from '@/store'
+	import RoundedButton from '@/components/RoundedButton.vue'
 
-	@Component
+	@Component({
+		components: { RoundedButton }
+	})
 	export default class CharacterConfirm extends Vue {
 		get player1() {
 			return vxm.player1.player1
@@ -26,7 +36,18 @@
 	.imgContainer
 		width: 75px
 		height: 125px
+
 	.icon
 		width: 100%
 		margin: 0 auto
+
+	.confirmContainer
+		display: flex
+		flex-direction: row-reverse
+		flex-wrap: wrap
+	.selectDetails
+		padding: 1em
+	.confirm
+		display: flex
+		justify-content: center
 </style>

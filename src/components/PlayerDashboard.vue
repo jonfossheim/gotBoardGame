@@ -36,5 +36,6 @@
 		flex: 1
 		border-right: 2px solid #2c3e50
 		border-left: 2px solid #2c3e50
+		min-width: 150px
 
 </style>
