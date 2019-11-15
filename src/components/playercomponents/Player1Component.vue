@@ -8,7 +8,7 @@
 				<h1>{{ player1.name }}</h1>
 				<h2>{{ player1.title }}</h2>
 				<p>{{ player1.birth }} </p>
-				<p> Your turn? : {{ player1.turn }}</p>
+				<p>{{ player1.tilePos }}</p>
 			</div>
 		</div>
 	</div>

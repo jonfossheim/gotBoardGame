@@ -55,6 +55,7 @@ export default class Player2 extends VuexModule {
 			this.player2.icon = './characters/brienne.png'
 		}
 	}
+	@mutation
 	updatePos(roll: number) {
 		this.player2.tilePos = this.player2.tilePos + roll
 	}
