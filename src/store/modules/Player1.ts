@@ -59,4 +59,8 @@ export default class Player1 extends VuexModule {
 	updatePos(roll: number) {
 		this.player1.tilePos = this.player1.tilePos + roll
 	}
+	@mutation
+	trapInvoke(penalty: number) {
+		this.player1.tilePos = this.player1.tilePos - penalty
+	}
 }

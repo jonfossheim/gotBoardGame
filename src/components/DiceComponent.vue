@@ -28,6 +28,10 @@
 			return vxm.player2.player2
 		}
 
+		get tiles() {
+			return vxm.tiles.tiles
+		}
+
 		newTurn () {
 			this.turn = !this.turn
 		}

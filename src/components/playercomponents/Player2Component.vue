@@ -8,7 +8,7 @@
 				<h1>{{ player2.name }}</h1>
 				<h2>{{ player2.title }}</h2>
 				<p>{{ player2.birth }} </p>
-				<p>{{ player2.tilePos }}</p>
+				<p>Current Score: {{ player2.tilePos }}</p>
 			</div>
 		</div>
 	</div>

@@ -173,7 +173,7 @@ export default class Tiles extends VuexModule {
 		},
 		{
 			id: 29,
-			trap: false,
+			trap: true,
 			message: 'You aggressively fistbump your partner and break your own hand. Go back 5 steps.',
 			penalty: 5
 		},
