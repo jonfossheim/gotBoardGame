@@ -114,7 +114,7 @@ export default class Tiles extends VuexModule {
 		{
 			id: 19,
 			trap: true,
-			message: 'You step on a worm and break down in tears. Go back 1 steps.',
+			message: 'You step on a worm and break down in tears. Go back 1 step.',
 			penalty: 1
 		},
 		{

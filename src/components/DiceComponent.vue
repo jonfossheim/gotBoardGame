@@ -20,6 +20,9 @@
 		result = 0
 		turn = true
 
+		p1CurrentTile = this.tiles[this.player1.tilePos]
+		p2CurrentTile = this.tiles[this.player2.tilePos]
+
 		get player1() {
 			return vxm.player1.player1
 		}
@@ -40,14 +43,106 @@
 			if (this.result === 6) {
 				if (this.turn) {
 					vxm.player1.updatePos(this.result)
+					switch (this.player1.tilePos) {
+						case 7:
+							vxm.player1.trapInvoke(this.p1CurrentTile.penalty)
+							alert(this.player1.name + ' has hit a trap')
+							break
+						case 13:
+							vxm.player1.trapInvoke(this.p1CurrentTile.penalty)
+							alert(this.player1.name + ' has hit a trap')
+							break
+						case 19:
+							vxm.player1.trapInvoke(this.p1CurrentTile.penalty)
+							alert(this.player1.name + ' has hit a trap')
+							break
+						case 22:
+							vxm.player1.trapInvoke(this.p1CurrentTile.penalty)
+							alert(this.player1.name + ' has hit a trap')
+							break
+						case 29:
+							vxm.player1.trapInvoke(this.p1CurrentTile.penalty)
+							alert(this.player1.name + ' has hit a trap')
+							break
+						default:
+					}
 				} else {
 					vxm.player2.updatePos(this.result)
+					switch (this.player2.tilePos) {
+						case 7:
+							vxm.player2.trapInvoke(this.p2CurrentTile.penalty)
+							alert(this.player2.name + ' has hit a trap')
+							break
+						case 13:
+							vxm.player2.trapInvoke(this.p2CurrentTile.penalty)
+							alert(this.player2.name + ' has hit a trap')
+							break
+						case 19:
+							vxm.player2.trapInvoke(this.p2CurrentTile.penalty)
+							alert(this.player2.name + ' has hit a trap')
+							break
+						case 22:
+							vxm.player2.trapInvoke(this.p2CurrentTile.penalty)
+							alert(this.player2.name + ' has hit a trap')
+							break
+						case 29:
+							vxm.player2.trapInvoke(this.p2CurrentTile.penalty)
+							alert(this.player2.name + ' has hit a trap')
+							break
+						default:
+					}
 				}
 			} else {
 				if (this.turn) {
 					vxm.player1.updatePos(this.result)
+					switch (this.player1.tilePos) {
+						case 7:
+							vxm.player1.trapInvoke(this.p1CurrentTile.penalty)
+							alert(this.player1.name + ' has hit a trap')
+							break
+						case 13:
+							vxm.player1.trapInvoke(this.p1CurrentTile.penalty)
+							alert(this.player1.name + ' has hit a trap')
+							break
+						case 19:
+							vxm.player1.trapInvoke(this.p1CurrentTile.penalty)
+							alert(this.player1.name + ' has hit a trap')
+							break
+						case 22:
+							vxm.player1.trapInvoke(this.p1CurrentTile.penalty)
+							alert(this.player1.name + ' has hit a trap')
+							break
+						case 29:
+							vxm.player1.trapInvoke(this.p1CurrentTile.penalty)
+							alert(this.player1.name + ' has hit a trap')
+							break
+						default:
+					}
 				} else {
 					vxm.player2.updatePos(this.result)
+					switch (this.player2.tilePos) {
+						case 7:
+							vxm.player2.trapInvoke(this.p2CurrentTile.penalty)
+							alert(this.player2.name + ' has hit a trap')
+							break
+						case 13:
+							vxm.player2.trapInvoke(this.p2CurrentTile.penalty)
+							alert(this.player2.name + ' has hit a trap')
+							break
+						case 19:
+							vxm.player2.trapInvoke(this.p2CurrentTile.penalty)
+							alert(this.player2.name + ' has hit a trap')
+							break
+						case 22:
+							vxm.player2.trapInvoke(this.p2CurrentTile.penalty)
+							alert(this.player2.name + ' has hit a trap')
+							break
+						case 29:
+							vxm.player2.trapInvoke(this.p2CurrentTile.penalty)
+							alert(this.player2.name + ' has hit a trap')
+							break
+						default:
+					}
 				}
 				this.newTurn()
 			}

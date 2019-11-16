@@ -12,7 +12,7 @@
 </template>
 
 <script lang="ts">
-	import { Component, Prop, Vue } from 'vue-property-decorator'
+	import { Component, Prop, Vue, Watch } from 'vue-property-decorator'
 	import { vxm } from '@/store'
 
 	@Component
@@ -20,11 +20,17 @@
 		@Prop()
 		tile!: any
 
+		isTrap = this.tile.trap
+
 		get player1() {
 			return vxm.player1.player1
 		}
 		get player2() {
 			return vxm.player2.player2
+		}
+		@Watch('isTrap')
+		onPropertyChanged(value: string, oldValue: string) {
+			// Do stuff with the watcher here.
 		}
 	}
 </script>
