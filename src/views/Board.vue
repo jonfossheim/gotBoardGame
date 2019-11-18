@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="board">
 		<WinnerComponent v-if="player1.tilePos >= 30" :player="player1" />
 		<WinnerComponent v-else-if="player2.tilePos >= 30" :player="player2" />
 		<div v-else>
@@ -31,5 +31,8 @@
 </script>
 
 <style scoped lang="sass">
-
+.board
+	width: 80%
+	max-width: 1200px
+	margin: 0 auto
 </style>

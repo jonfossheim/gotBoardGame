@@ -24,6 +24,7 @@ export default class Player1 extends VuexModule {
 		this.player1.title = character.aliases[0]
 		this.player1.birth = 'Birth: ' + character.born
 		this.player1.tilePos = 0
+		this.player1.turn = true
 
 		if (this.player1.name === 'Petyr Baelish') {
 			this.player1.icon = './characters/petyr.png'
