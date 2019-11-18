@@ -42,7 +42,7 @@ export default class Tiles extends VuexModule {
 		{
 			id: 7,
 			trap: true,
-			message: 'The three eyed raven needs a lift. Go back 3 steps.',
+			message: 'hit tile 7, and the three eyed raven needs a lift. Go back 3 steps.',
 			penalty: 3
 		},
 		{
@@ -78,7 +78,7 @@ export default class Tiles extends VuexModule {
 		{
 			id: 13,
 			trap: true,
-			message: 'Some midget shanked your leg. Go back 5 steps...',
+			message: 'hit tile 13, and some midget shanked their leg. Go back 5 steps...',
 			penalty: 5
 		},
 		{
@@ -114,7 +114,7 @@ export default class Tiles extends VuexModule {
 		{
 			id: 19,
 			trap: true,
-			message: 'You step on a worm and break down in tears. Go back 1 step.',
+			message: 'hit tile 19 and steps on a worm, breaking down in tears. Go back 1 step.',
 			penalty: 1
 		},
 		{
@@ -132,7 +132,7 @@ export default class Tiles extends VuexModule {
 		{
 			id: 22,
 			trap: true,
-			message: 'Geoffrey, wants to marry you. You set up the red wedding. Go back 2 steps',
+			message: 'hit tile 22 and Geoffrey wants to marry them. They need to set up the red wedding. Go back 2 steps',
 			penalty: 2
 		},
 		{
@@ -174,7 +174,7 @@ export default class Tiles extends VuexModule {
 		{
 			id: 29,
 			trap: true,
-			message: 'You aggressively fistbump your partner and break your own hand. Go back 5 steps.',
+			message: 'hit tile 29 and aggressively fistbumps their partner and break their own hand. Go back 5 steps.',
 			penalty: 5
 		},
 		{
