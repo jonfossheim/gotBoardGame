@@ -1,5 +1,5 @@
 <template>
-	<div class="character">
+	<div :class="{ isActive : player1.turn }" class="character">
 		<div class="character__inner">
 			<div class="image__container">
 				<img :src="player1.icon">
@@ -14,13 +14,14 @@
 </template>
 
 <script lang="ts">
-	import { Component, Vue } from 'vue-property-decorator'
+	import { Component, Prop, Vue } from 'vue-property-decorator'
 	import { vxm } from '@/store'
 
 	@Component({
 		components: {}
 	})
 	export default class Player1Component extends Vue {
+		active = this.player1.turn
 		get player1() {
 			return vxm.player1.player1
 		}
@@ -28,9 +29,15 @@
 </script>
 
 <style scoped lang="sass">
+	@import "../../styles/partials/mixins"
 	.character
 		display: flex
 		justify-content: space-around
+		border-top: 3px solid transparent
+		border-right: 3px solid transparent
+	.isActive
+		background: rgba(159, 90, 253, 0.2)
+		@include border-radius(6px)
 
 	.character__inner
 		display: flex

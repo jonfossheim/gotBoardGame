@@ -6,8 +6,8 @@
 		<br>
 		<span>You rolled: {{ result }}</span>
 		<br>
-		<span v-if="turn">It is {{ player1.name }}'s turn.</span>
-		<span v-if="!turn">It is {{ player2.name }}'s turn.</span>
+		<span v-if="player1.turn">It is {{ player1.name }}'s turn.</span>
+		<span v-if="player2.turn">It is {{ player2.name }}'s turn.</span>
 	</div>
 </template>
 
@@ -18,9 +18,6 @@
 	@Component
 	export default class DiceComponent extends Vue {
 		result = 0
-		turn = true
-		p1CurrentTile = this.tiles[this.player1.tilePos - 1]
-		p2CurrentTile = this.tiles[this.player2.tilePos - 1]
 		get player1() {
 			return vxm.player1.player1
 		}
@@ -34,7 +31,8 @@
 		}
 
 		newTurn() {
-			this.turn = !this.turn
+			vxm.player1.updateTurn()
+			vxm.player2.updateTurn()
 		}
 
 		trap(vxmplayer: any, thisplayer:any) {
@@ -69,7 +67,7 @@
 		rollDice() {
 			this.result = Math.floor(Math.random() * 6) + 1
 			if (this.result === 6) {
-				if (this.turn) {
+				if (this.player1.turn) {
 					vxm.player1.updatePos(this.result)
 					this.trap(vxm.player1, this.player1)
 				} else {
@@ -77,7 +75,7 @@
 					this.trap(vxm.player2, this.player2)
 				}
 			} else {
-				if (this.turn) {
+				if (this.player1.turn) {
 					vxm.player1.updatePos(this.result)
 					this.trap(vxm.player1, this.player1)
 				} else {

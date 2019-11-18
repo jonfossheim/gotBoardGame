@@ -6,9 +6,6 @@
 			<PlayerDashboard />
 			<TileDeck />
 		</div>
-		<RouterLink to="/">
-			Change Character and Reset
-		</RouterLink>
 	</div>
 </template>
 

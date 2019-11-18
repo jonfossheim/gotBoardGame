@@ -19,23 +19,25 @@
 		components: { Player1Component, DiceComponent, Player2Component }
 	})
 	export default class PlayerDashboard extends Vue {
+	turn = true
 	}
 </script>
 
 <style scoped lang="sass">
+	@import "../styles/partials/mixins"
 	.playersContainer
-		display: flex
-		flex-direction: row
-		justify-content: space-around
+		display: grid
+		grid-template-columns: repeat(3, 1fr)
 		width: 100%
+		@include border-radius(3px)
+		border: 3px solid slateblue
+		padding: 1em
 	.gamestats
 		display: flex
 		flex-direction: column
 		justify-content: center
 		text-align: center
 		flex: 1
-		border-right: 2px solid #2c3e50
-		border-left: 2px solid #2c3e50
 		min-width: 150px
 
 </style>

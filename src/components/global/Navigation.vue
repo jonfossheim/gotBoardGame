@@ -1,11 +1,7 @@
 <template>
 	<div id="nav">
 		<RouterLink to="/">
-			Home
-		</RouterLink>
-		|
-		<RouterLink to="/board">
-			Board
+			Select Character
 		</RouterLink>
 		|
 		<RouterLink to="/about">

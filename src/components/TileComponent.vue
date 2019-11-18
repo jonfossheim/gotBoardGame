@@ -44,6 +44,12 @@
 		margin: 0.4em
 		span
 			@include fontSize(20px)
+		.p1Border
+			border-top: 3px solid blue
+			border-right: 3px solid blue
+		.p2Border
+			border-top: 3px solid red
+			border-right: 3px solid red
 	.playerIcon
 		width: 50px
 </style>

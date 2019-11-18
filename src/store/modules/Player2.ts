@@ -8,7 +8,8 @@ export default class Player2 extends VuexModule {
 		title: '',
 		birth: '',
 		icon: '',
-		tilePos: 0
+		tilePos: 0,
+		turn: false
 	}
 
 	@action
@@ -62,5 +63,9 @@ export default class Player2 extends VuexModule {
 	@mutation
 	trapInvoke(penalty: number) {
 		this.player2.tilePos = this.player2.tilePos - penalty
+	}
+	@mutation
+	updateTurn() {
+		this.player2.turn = !this.player2.turn
 	}
 }

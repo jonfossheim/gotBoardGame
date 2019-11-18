@@ -1,14 +1,16 @@
 <template>
 	<div id="app">
-		<h1>Race for the Iron Throne</h1>
+		<Header />
 		<RouterView />
 	</div>
 </template>
 
 <script lang="ts">
 	import { Component, Vue } from 'vue-property-decorator'
-
-	@Component
+	import Header from '@/components/global/Header.vue'
+	@Component({
+		components: { Header }
+	})
 	export default class App extends Vue {
 	}
 </script>
