@@ -19,5 +19,5 @@
 .header
 	display: grid
 	width: 100%
-	grid-template-columns: 10fr 2fr
+	grid-template-columns: 9fr 3fr
 </style>

@@ -5,33 +5,14 @@
 			<div class="docsContainer">
 				<div class="docsContainer__list">
 					<ul>
-						<li>item1</li>
-						<li>item2</li>
-						<li>item3</li>
-						<li>item4</li>
+						<li v-for="item in items" :key="item.id">{{ item.title }}</li>
 					</ul>
 				</div>
 				<div class="docsContainer__content">
-					<h3>VueJS</h3>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. A architecto deserunt dolor ducimus, illum, iure maiores mollitia
-						obcaecati odio porro quasi quis quo ratione repudiandae veritatis, voluptate voluptatem voluptatibus voluptatum.
-					</p>
-					<h3>Vuex</h3>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem facilis fugiat id nam necessitatibus nemo obcaecati
-						officiis rem vitae, voluptatum! A commodi minima ratione. Assumenda cupiditate deleniti eaque eligendi odit.
-					</p>
-					<h3>Vue Router</h3>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam asperiores autem cum doloribus eaque est id in, maiores
-						molestias nemo non obcaecati officia praesentium quo quod suscipit, totam! Eaque, incidunt!
-					</p>
-					<h3>SASS</h3>
-					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam atque corporis, ducimus earum iste iusto, laborum magnam
-						molestias non numquam odio odit qui quod recusandae saepe sed temporibus vitae voluptate?
-					</p>
+					<div v-for="item in items" :key="item.id">
+						<h3>{{ item.title }}</h3>
+						<p>{{ item.body }}</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -45,6 +26,40 @@
 		components: {}
 	})
 	export default class About extends Vue {
+		uuidv4 = require('uuid/v4')
+
+		items = [
+			{
+				id: this.uuidv4(),
+				title: 'API',
+				body: 'https://anapioficeandfire.com/',
+			},
+			{
+				id: this.uuidv4(),
+				title: 'VueJS',
+				body: 'Project written in VueJS as a challenge for myself. Original task requirement: HTML, CSS and JavaScript.',
+			},
+			{
+				id: this.uuidv4(),
+				title: 'Vuex',
+				body: 'I use Vuex for statemanagement across the app.',
+			},
+			{
+				id: this.uuidv4(),
+				title: 'Vue Router',
+				body: 'Vue Router used to achieve no-reload.',
+			},
+			{
+				id: this.uuidv4(),
+				title: 'TypeScript',
+				body: 'Used for practice.',
+			},
+			{
+				id: this.uuidv4(),
+				title: 'SASS',
+				body: 'My personal preference for writing CSS.',
+			},
+		]
 	}
 </script>
 
@@ -60,7 +75,7 @@
 
 		.docsContainer
 			display: grid
-			grid-template-columns: 1fr 11fr
+			grid-template-columns: 2fr 10fr
 			padding: 1em
 
 			&__list
