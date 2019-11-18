@@ -15,7 +15,7 @@
 	}
 </script>
 
-<style scoped lang="sass">
+<style lang="sass">
 #app
 	padding: 1em
 </style>

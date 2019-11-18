@@ -1,12 +1,16 @@
 <template>
 	<div class="tile">
-		<p v-if="player1.tilePos === tile.id">
-			<img class="playerIcon" :src="player1.icon" :alt="player1.name">
-		</p>
+		<transition name="bounce">
+			<p v-if="player1.tilePos === tile.id">
+				<img class="playerIcon" :src="player1.icon" :alt="player1.name">
+			</p>
+		</transition>
 		<span>No.{{ tile.id }}</span>
-		<p v-if="player2.tilePos === tile.id">
-			<img class="playerIcon" :src="player2.icon" :alt="player2.name">
-		</p>
+		<transition name="bounce">
+			<p v-if="player2.tilePos === tile.id">
+				<img class="playerIcon" :src="player2.icon" :alt="player2.name">
+			</p>
+		</transition>
 	</div>
 </template>
 
@@ -19,8 +23,6 @@
 		@Prop()
 		tile!: any
 
-		isTrap = this.tile.trap
-
 		get player1() {
 			return vxm.player1.player1
 		}
@@ -32,24 +34,19 @@
 
 <style scoped lang="sass">
 	@import "../styles/partials/mixins"
+	@import "../styles/partials/animations"
 	.tile
 		height: 125px
 		width: 125px
-		border: 2px solid #42b983
-		padding: 0.5em
+		border: 3px solid #42b983
 		display: flex
 		flex-direction: column
 		justify-content: space-around
 		align-items: center
-		margin: 0.4em
+		margin: 0.3em
 		span
 			@include fontSize(20px)
-		.p1Border
-			border-top: 3px solid blue
-			border-right: 3px solid blue
-		.p2Border
-			border-top: 3px solid red
-			border-right: 3px solid red
 	.playerIcon
 		width: 50px
+
 </style>

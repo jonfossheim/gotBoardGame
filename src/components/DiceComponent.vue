@@ -1,14 +1,16 @@
 <template>
 	<div>
-		<button @click="rollDice()">
-			<span> Roll the dice </span>
+		<button class="dice" @click="rollDice()">
+			<span>{{ result }}</span>
 		</button>
 		<br>
-		<span>You rolled: {{ result }}</span>
+		<span>Roll the Dice</span>
 		<br>
 		<span v-if="player1.turn">It is {{ player1.name }}'s turn.</span>
 		<span v-if="player2.turn">It is {{ player2.name }}'s turn.</span>
-		<TrapModal v-if="trapmodal.open" />
+		<transition name="modal">
+			<TrapModal v-if="trapmodal.open" />
+		</transition>
 	</div>
 </template>
 
@@ -108,6 +110,12 @@
 	}
 </script>
 
-<style scoped lang="sass">
-
+<style lang="sass">
+.dice
+	padding: 18px 25px
+	border: 2px solid black
+	background: #fff
+	font-weight: bolder
+	font-size: 20px
+	border-radius: 3px
 </style>

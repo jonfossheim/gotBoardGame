@@ -1,0 +1,35 @@
+.character
+  display: flex
+  border: 3px solid transparent
+  &__inner
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    margin: 1em
+    width: 100%
+    &--reverse
+      flex-direction: row-reverse
+      text-align: right
+    &--details
+      padding-left: 1em
+      padding-right: 1em
+      max-width: 300px
+
+.imageContainer
+  width: 75px
+  &__playerImg
+    width: 100%
+
+.isActive
+  &__right
+    border: 3px solid mediumslateblue
+    @include border-radius(6px)
+    -webkit-box-shadow: 10px 10px 15px -5px rgba(0,0,0,0.75)
+    -moz-box-shadow: 10px 10px 15px -5px rgba(0,0,0,0.75)
+    box-shadow: 10px 10px 15px -5px rgba(0,0,0,0.75)
+  &__left
+    border: 3px solid mediumslateblue
+    @include border-radius(6px)
+    -webkit-box-shadow: -10px 10px 15px -5px rgba(0,0,0,0.75)
+    -moz-box-shadow: -10px 10px 15px -5px rgba(0,0,0,0.75)
+    box-shadow: -10px 10px 15px -5px rgba(0,0,0,0.75)

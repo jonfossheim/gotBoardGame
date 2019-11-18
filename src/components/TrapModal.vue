@@ -1,29 +1,27 @@
 <template>
-	<transition name="modal">
-		<div class="modal-mask">
-			<div class="modal-wrapper">
-				<div class="modal-container">
-					<div class="modal-header">
-						<h2>
-							Oh no, {{ trapmodal.playerName }} hit a trap!
-						</h2>
-					</div>
+	<div class="modal-mask">
+		<div class="modal-wrapper">
+			<div class="modal-container">
+				<div class="modal-header">
+					<h2>
+						Oh no, {{ trapmodal.playerName }} hit a trap!
+					</h2>
+				</div>
 
-					<div class="modal-body">
-						<img :src="trapmodal.playerIcon" :alt="trapmodal.playerName">
-						<br>
-						<p>{{ trapmodal.body }}</p>
-					</div>
+				<div class="modal-body">
+					<img :src="trapmodal.playerIcon" :alt="trapmodal.playerName">
+					<br>
+					<p>{{ trapmodal.body }}</p>
+				</div>
 
-					<div class="modal-footer">
-						<button class="modal-default-button" @click="updateState(false)">
-							Continue
-						</button>
-					</div>
+				<div class="modal-footer">
+					<button class="modal-default-button" @click="updateState(false)">
+						Continue
+					</button>
 				</div>
 			</div>
 		</div>
-	</transition>
+	</div>
 </template>
 
 <script lang="ts">
@@ -43,6 +41,7 @@
 </script>
 
 <style scoped lang="sass">
+	@import "../styles/partials/mixins"
 	.modal-mask
 		position: fixed
 		z-index: 9998
@@ -59,13 +58,16 @@
 			vertical-align: middle
 
 		.modal-container
-			width: 600px
+			width: 100%
+			max-width: 600px
 			margin: 0px auto
 			padding: 2em 3em
 			background-color: #fff
 			border-radius: 2px
 			box-shadow: 0 2px 8px rgba(0, 0, 0, .33)
 			transition: all .3s ease
+			border: 3px solid slateblue
+			@include border-radius(6px)
 
 		.modal-header h3
 			margin-top: 0
@@ -80,15 +82,8 @@
 		.modal-default-button
 			float: right
 			padding: 8px
-
-		.modal-enter
-			opacity: 0
-
-		.modal-leave-active
-			opacity: 0
-
-		.modal-enter .modal-container,
-		.modal-leave-active .modal-container
-			-webkit-transform: scale(1.1)
-			transform: scale(1.1)
+			border: 3px solid mediumslateblue
+			background: #fff
+			color: darkslateblue
+			font-weight: bold
 </style>
