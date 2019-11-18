@@ -1,14 +1,14 @@
 <template>
 	<div>
-		<RouterLink to="/">
-			Change Character and Reset
-		</RouterLink>
 		<WinnerComponent v-if="player1.tilePos >= 30" :player="player1" />
 		<WinnerComponent v-else-if="player2.tilePos >= 30" :player="player2" />
 		<div v-else>
 			<PlayerDashboard />
 			<TileDeck />
 		</div>
+		<RouterLink to="/">
+			Change Character and Reset
+		</RouterLink>
 	</div>
 </template>
 

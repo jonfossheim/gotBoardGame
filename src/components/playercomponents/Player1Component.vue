@@ -5,9 +5,8 @@
 				<img :src="player1.icon">
 			</div>
 			<div class="character__inner--details">
-				<h1>{{ player1.name }}</h1>
-				<h2>{{ player1.title }}</h2>
-				<p>{{ player1.birth }} </p>
+				<h2>{{ player1.name }}</h2>
+				<h3>{{ player1.title }}</h3>
 				<p>Current Score: {{ player1.tilePos }}</p>
 			</div>
 		</div>

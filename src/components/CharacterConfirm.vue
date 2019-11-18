@@ -10,9 +10,7 @@
 			</div>
 		</div>
 		<div class="confirm">
-			<RoundedButton to="/board">
-				<span>Confirm Selection</span>
-			</RoundedButton>
+			<RoundedButton to="/board" />
 		</div>
 	</div>
 </template>

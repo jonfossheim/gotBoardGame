@@ -1,15 +1,11 @@
 <template>
 	<RouterLink
-		v-if="to !== null"
 		tag="button"
 		class="circle-button"
 		:to="to"
 	>
 		<span>Confirm Selection</span>
 	</RouterLink>
-	<button v-else class="circle-button">
-		<slot />
-	</button>
 </template>
 
 <script lang="ts">

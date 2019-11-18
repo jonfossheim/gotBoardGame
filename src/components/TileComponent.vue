@@ -4,7 +4,6 @@
 			<img class="playerIcon" :src="player1.icon" :alt="player1.name">
 		</p>
 		<span>No.{{ tile.id }}</span>
-		<span>{{ tile.trap }}</span>
 		<p v-if="player2.tilePos === tile.id">
 			<img class="playerIcon" :src="player2.icon" :alt="player2.name">
 		</p>
@@ -34,15 +33,15 @@
 <style scoped lang="sass">
 	@import "../styles/partials/mixins"
 	.tile
-		height: 175px
-		width: 75px
+		height: 125px
+		width: 125px
 		border: 2px solid #42b983
 		padding: 0.5em
 		display: flex
 		flex-direction: column
 		justify-content: space-around
 		align-items: center
-		margin: 0.5em
+		margin: 0.4em
 		span
 			@include fontSize(20px)
 	.playerIcon
