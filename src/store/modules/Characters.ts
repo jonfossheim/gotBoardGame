@@ -9,9 +9,9 @@ export default class Characters extends VuexModule {
 			name: 'Petyr'
 		},
 		{
-			id: 1319,
-			icon: './characters/davos.png',
-			name: 'Davos'
+			id: 529,
+			icon: './characters/jaime.png',
+			name: 'Jaime Lannister'
 		},
 		{
 			id: 1052,
@@ -24,9 +24,9 @@ export default class Characters extends VuexModule {
 			name: 'Bronn'
 		},
 		{
-			id: 529,
-			icon: './characters/jaime.png',
-			name: 'Jaime Lannister'
+			id: 1319,
+			icon: './characters/davos.png',
+			name: 'Davos'
 		},
 		{
 			id: 271,

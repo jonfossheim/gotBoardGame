@@ -122,9 +122,9 @@
 	height: 60px
 	width: 60px
 	margin: 5px auto
-	border: 2px solid black
+	border: 2px solid slateblue
 	cursor: pointer
-	background: #fff
+	background: #212121
 	display: flex
 	justify-content: center
 	align-items: center

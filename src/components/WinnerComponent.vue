@@ -35,6 +35,7 @@
 
 <style scoped lang="sass">
 	@import "../styles/partials/buttons"
+	@import "../styles/partials/mixins"
 	.winContainer
 		display: flex
 		flex-direction: column
@@ -44,6 +45,7 @@
 		max-width: 600px
 		margin: 0 auto
 		padding: 2em
+		@include border-radius(6px)
 		-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75)
 		-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75)
 		box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75)
