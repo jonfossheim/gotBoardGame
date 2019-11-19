@@ -1,12 +1,17 @@
 <template>
-	<div>
-		<button class="dice" @click="rollDice()">
+	<div class="diceContainer">
+		<div class="dice" @click="rollDice()">
 			<transition name="fade">
 				<span>{{ result }}</span>
 			</transition>
-		</button>
+		</div>
+		<span>Roll the Dice above</span>
 		<br>
-		<span>Roll the Dice</span>
+		<div class="highRoll">
+			<h3 v-if="result === 6">
+				{{ highroller }} rolled a 6!
+			</h3>
+		</div>
 		<transition name="modal">
 			<TrapModal v-if="trapmodal.open" />
 		</transition>
@@ -24,6 +29,7 @@
 	})
 	export default class DiceComponent extends Vue {
 		result = 0
+		highroller = ''
 
 		get player1() {
 			return vxm.player1.player1
@@ -88,9 +94,11 @@
 			this.result = Math.floor(Math.random() * 6) + 1
 			if (this.result === 6) {
 				if (this.player1.turn) {
+					this.highroller = this.player1.name
 					vxm.player1.updatePos(this.result)
 					this.trap(vxm.player1, this.player1)
 				} else {
+					this.highroller = this.player2.name
 					vxm.player2.updatePos(this.result)
 					this.trap(vxm.player2, this.player2)
 				}
@@ -111,12 +119,28 @@
 
 <style lang="sass">
 .dice
-	padding: 18px 25px
+	height: 60px
+	width: 60px
+	margin: 5px auto
 	border: 2px solid black
+	cursor: pointer
 	background: #fff
+	display: flex
+	justify-content: center
+	align-items: center
 	font-weight: bolder
 	font-size: 20px
 	border-radius: 3px
+	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75)
+	-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75)
+	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75)
+	transition: 0.2s ease
+	&:hover
+		transform: scale(1.1)
+
+.highRoll
+	height: 30px
+	width: 100%
 
 .fade-enter-active, .fade-leave-active
 	transition: opacity .5s

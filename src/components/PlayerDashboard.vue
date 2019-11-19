@@ -2,7 +2,7 @@
 	<div class="playersContainer">
 		<Player1Component />
 		<div class="gamestats">
-			<h3>Versus</h3>
+			<h3>VS</h3>
 			<DiceComponent />
 		</div>
 		<Player2Component />

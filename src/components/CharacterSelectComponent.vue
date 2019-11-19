@@ -17,14 +17,15 @@
 			return vxm.characters.characters
 		}
 
-		setPlayer2() {
+		setPlayer2(p1Character: any) {
+			let excludeIndex = this.characters.map(function(item:any) { return item.id }).indexOf(p1Character)
 			let id = this.characters[Math.floor(Math.random() * this.characters.length)].id
 			vxm.player2.getCharacter(id)
 		}
 
 		assignCharacter(id: any) {
 			vxm.player1.getCharacter(id)
-			this.setPlayer2()
+			this.setPlayer2(id)
 		}
 	}
 </script>

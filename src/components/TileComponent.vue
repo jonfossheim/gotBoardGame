@@ -45,15 +45,18 @@
 		width: 125px
 		border: 3px solid darkslateblue
 		@include border-radius(6px)
-		margin: 0.3em
+		margin: 0.2em
 		position: relative
-
+		-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75)
+		-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75)
+		box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75)
 		span
-			@include fontSize(20px)
+			@include fontSize(14px)
 	.tileInner
 		display: flex
 		justify-content: space-around
 		align-items: center
+		padding: 0.3em
 		z-index: 100
 	.watermark
 		position: absolute
