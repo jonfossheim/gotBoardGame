@@ -5,13 +5,19 @@
 			<div class="docsContainer">
 				<div class="docsContainer__list">
 					<ul>
-						<li v-for="item in items" :key="item.id">{{ item.title }}</li>
+						<li v-for="item in items" :key="item.id">
+							{{ item.title }}
+						</li>
 					</ul>
 				</div>
 				<div class="docsContainer__content">
 					<div v-for="item in items" :key="item.id">
-						<h3>{{ item.title }}</h3>
-						<p>{{ item.body }}</p>
+						<h3>
+							{{ item.title }}
+						</h3>
+						<p>
+							{{ item.body }}
+						</p>
 					</div>
 				</div>
 			</div>
@@ -59,6 +65,11 @@
 				title: 'SASS',
 				body: 'My personal preference for writing CSS.',
 			},
+			{
+				id: this.uuidv4(),
+				title: 'Flexbox & Grids',
+				body: 'I combine both Flexbox and CSS grids to create the layout of this page.',
+			},
 		]
 	}
 </script>
@@ -80,7 +91,10 @@
 
 			&__list
 				border-right: 3px solid #2c3e50
-
+				ul
+					list-style: none
+					li
+						margin: 1em 1em 1em 0
 			&__content
 				padding-left: 1em
 

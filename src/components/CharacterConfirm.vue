@@ -10,7 +10,9 @@
 			</div>
 		</div>
 		<div class="confirm">
-			<RoundedButton to="/board" />
+			<RouterLink class="btn" to="/board">
+				Confirm Selection
+			</RouterLink>
 		</div>
 	</div>
 </template>
@@ -31,6 +33,7 @@
 </script>
 
 <style scoped lang="sass">
+	@import "../styles/partials/buttons"
 	.imgContainer
 		width: 75px
 		height: 125px

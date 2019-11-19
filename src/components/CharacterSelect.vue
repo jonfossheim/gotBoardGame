@@ -1,5 +1,5 @@
 <template>
-	<div class="selectComponents">
+	<div class="selectContainer">
 		<CharacterSelectComponent
 			v-for="character in characters"
 			:key="character.id"
@@ -26,7 +26,7 @@
 </script>
 
 <style scoped lang="sass">
-	.selectComponents
+	.selectContainer
 		display: flex
 		flex-direction: row
 		flex-wrap: wrap

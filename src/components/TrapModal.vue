@@ -1,21 +1,19 @@
 <template>
-	<div class="modal-mask">
-		<div class="modal-wrapper">
-			<div class="modal-container">
-				<div class="modal-header">
+	<div class="modal">
+		<div class="modal__wrapper">
+			<div class="modal__container">
+				<div class="modal__header">
 					<h2>
 						Oh no, {{ trapmodal.playerName }} hit a trap!
 					</h2>
 				</div>
-
-				<div class="modal-body">
+				<div class="modal__body">
 					<img class="modal-image" :src="trapmodal.playerIcon" :alt="trapmodal.playerName">
 					<br>
 					<p>{{ trapmodal.body }}</p>
 				</div>
-
-				<div class="modal-footer">
-					<button class="modal-default-button" @click="updateState(false)">
+				<div class="modal__footer">
+					<button class="btn btn__modal" @click="updateState(false)">
 						Continue
 					</button>
 				</div>
@@ -42,7 +40,8 @@
 
 <style scoped lang="sass">
 	@import "../styles/partials/mixins"
-	.modal-mask
+	@import "../styles/partials/buttons"
+	.modal
 		position: fixed
 		z-index: 9998
 		top: 0
@@ -52,12 +51,10 @@
 		background-color: rgba(0, 0, 0, .5)
 		display: table
 		transition: opacity .3s ease
-
-		.modal-wrapper
+		&__wrapper
 			display: table-cell
 			vertical-align: middle
-
-		.modal-container
+		&__container
 			width: 100%
 			max-width: 600px
 			margin: 0px auto
@@ -68,24 +65,15 @@
 			transition: all .3s ease
 			border: 3px solid slateblue
 			@include border-radius(6px)
-
-		.modal-header h3
+		&__header h3
 			margin-top: 0
 			color: #42b983
-
-		.modal-body
+		&__body
 			margin: 20px 0
-		.modal-image
+		&__image
 			width: 100%
 			max-width: 250px
-		.modal-footer
+		&__footer
 			height: 20px
 
-		.modal-default-button
-			float: right
-			padding: 8px
-			border: 3px solid mediumslateblue
-			background: #fff
-			color: darkslateblue
-			font-weight: bold
 </style>
