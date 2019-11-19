@@ -17,7 +17,7 @@
 				Play again
 			</RouterLink>
 			<RouterLink class="btn" to="/about">
-				Read about this project
+				About the project
 			</RouterLink>
 		</div>
 	</div>
@@ -49,5 +49,5 @@
 		box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75)
 		.playerIcon
 			width: 100%
-			max-width: 400px
+			max-width: 250px
 </style>
