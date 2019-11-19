@@ -37,5 +37,4 @@
 	.icon
 		width: 100%
 		margin: 0 auto
-		border-radius: 50px
 </style>
