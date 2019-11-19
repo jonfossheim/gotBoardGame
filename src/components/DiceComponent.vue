@@ -1,13 +1,12 @@
 <template>
 	<div>
 		<button class="dice" @click="rollDice()">
-			<span>{{ result }}</span>
+			<transition name="fade">
+				<span>{{ result }}</span>
+			</transition>
 		</button>
 		<br>
 		<span>Roll the Dice</span>
-		<br>
-		<span v-if="player1.turn">It is {{ player1.name }}'s turn.</span>
-		<span v-if="player2.turn">It is {{ player2.name }}'s turn.</span>
 		<transition name="modal">
 			<TrapModal v-if="trapmodal.open" />
 		</transition>
@@ -118,4 +117,10 @@
 	font-weight: bolder
 	font-size: 20px
 	border-radius: 3px
+
+.fade-enter-active, .fade-leave-active
+	transition: opacity .5s
+
+.fade-enter, .fade-leave-to
+	opacity: 0
 </style>
