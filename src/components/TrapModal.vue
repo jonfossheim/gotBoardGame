@@ -8,7 +8,7 @@
 					</h2>
 				</div>
 				<div class="modal__body">
-					<img class="modal-image" :src="trapmodal.playerIcon" :alt="trapmodal.playerName">
+					<img class="modal__image" :src="trapmodal.playerIcon" :alt="trapmodal.playerName">
 					<br>
 					<p>{{ trapmodal.body }}</p>
 				</div>
