@@ -9,7 +9,7 @@
 				</div>
 
 				<div class="modal-body">
-					<img :src="trapmodal.playerIcon" :alt="trapmodal.playerName">
+					<img class="modal-image" :src="trapmodal.playerIcon" :alt="trapmodal.playerName">
 					<br>
 					<p>{{ trapmodal.body }}</p>
 				</div>
@@ -75,7 +75,9 @@
 
 		.modal-body
 			margin: 20px 0
-
+		.modal-image
+			width: 100%
+			max-width: 250px
 		.modal-footer
 			height: 20px
 

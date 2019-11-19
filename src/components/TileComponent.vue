@@ -1,16 +1,20 @@
 <template>
 	<div class="tile">
-		<transition name="bounce">
-			<p v-if="player1.tilePos === tile.id">
-				<img class="playerIcon" :src="player1.icon" :alt="player1.name">
-			</p>
-		</transition>
-		<span>No.{{ tile.id }}</span>
-		<transition name="bounce">
-			<p v-if="player2.tilePos === tile.id">
-				<img class="playerIcon" :src="player2.icon" :alt="player2.name">
-			</p>
-		</transition>
+		<div class="tileInner">
+			<transition name="bounce">
+				<p v-if="player1.tilePos === tile.id">
+					<img class="playerIcon" :src="player1.icon" :alt="player1.name">
+				</p>
+			</transition>
+			<transition name="bounce">
+				<p v-if="player2.tilePos === tile.id">
+					<img class="playerIcon" :src="player2.icon" :alt="player2.name">
+				</p>
+			</transition>
+		</div>
+		<p class="watermark">
+			<span>No.{{ tile.id }}</span>
+		</p>
 	</div>
 </template>
 
@@ -26,6 +30,7 @@
 		get player1() {
 			return vxm.player1.player1
 		}
+
 		get player2() {
 			return vxm.player2.player2
 		}
@@ -38,14 +43,24 @@
 	.tile
 		height: 125px
 		width: 125px
-		border: 3px solid #42b983
-		display: flex
-		flex-direction: column
-		justify-content: space-around
-		align-items: center
+		border: 3px solid darkslateblue
+		@include border-radius(6px)
 		margin: 0.3em
+		position: relative
+
 		span
 			@include fontSize(20px)
+	.tileInner
+		display: flex
+		justify-content: space-around
+		align-items: center
+		z-index: 100
+	.watermark
+		position: absolute
+		bottom: 2px
+		right: 5px
+		z-index: -100
+		color: lightslategray
 	.playerIcon
 		width: 50px
 
