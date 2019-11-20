@@ -11,12 +11,12 @@ export default class Characters extends VuexModule {
 		{
 			id: 529,
 			icon: './characters/jaime.png',
-			name: 'Jaime Lannister'
+			name: 'Jaime'
 		},
 		{
 			id: 1052,
 			icon: './characters/tyrion.png',
-			name: 'Tyrion Lannister'
+			name: 'Tyrion'
 		},
 		{
 			id: 217,
@@ -31,27 +31,27 @@ export default class Characters extends VuexModule {
 		{
 			id: 271,
 			icon: './characters/daenerys.png',
-			name: 'Daenerys Targaryen'
+			name: 'Daenerys'
 		},
 		{
 			id: 955,
 			icon: './characters/sandor.png',
-			name: 'Sandor Clegane'
+			name: 'Sandor'
 		},
 		{
 			id: 583,
 			icon: './characters/jon.png',
-			name: 'Jon Snow'
+			name: 'Jon'
 		},
 		{
 			id: 148,
 			icon: './characters/arya.png',
-			name: 'Arya Stark'
+			name: 'Arya'
 		},
 		{
 			id: 216,
 			icon: './characters/brienne.png',
-			name: 'Brienne of Tarth'
+			name: 'Brienne'
 		},
 	]
 }

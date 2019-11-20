@@ -1,6 +1,21 @@
 <template>
 	<div class="iconContainer">
-		<img class="icon " :src="character.icon" @click="assignCharacter(character.id)">
+		<div>
+			<img
+				class="icon"
+				:src="character.icon"
+				@click="assignCharacter(character.id)"
+				@mouseover="mouseOver"
+				@mouseleave="mouseOver"
+			/>
+			<div class="captContainer">
+				<transition name="fade">
+					<p v-show="hover">
+						{{ character.name }}
+					</p>
+				</transition>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -8,17 +23,23 @@
 	import { Component, Prop, Vue } from 'vue-property-decorator'
 	import { vxm } from '@/store'
 
-	@Component
+	@Component({
+		components: {}
+	})
 	export default class CharacterSelectComponent extends Vue {
 		@Prop()
 		character!: any
+
+		hover = false
 
 		get characters() {
 			return vxm.characters.characters
 		}
 
 		setPlayer2(p1Character: any) {
-			let excludeIndex = this.characters.map(function(item:any) { return item.id }).indexOf(p1Character)
+			let excludeIndex = this.characters.map(function (item: any) {
+				return item.id
+			}).indexOf(p1Character)
 			let id = this.characters[Math.floor(Math.random() * this.characters.length)].id
 			vxm.player2.getCharacter(id)
 		}
@@ -27,14 +48,25 @@
 			vxm.player1.getCharacter(id)
 			this.setPlayer2(id)
 		}
+
+		mouseOver() {
+			this.hover = !this.hover
+		}
 	}
 </script>
 
 <style scoped lang="sass">
+	@import "../styles/partials/animations"
 	.iconContainer
 		width: 175px
 		margin: 1em
-	.icon
-		width: 100%
-		margin: 0 auto
+
+		.icon
+			width: 100%
+			margin: 0 auto
+
+		.captContainer
+			text-align: center
+			height: 10px
+
 </style>

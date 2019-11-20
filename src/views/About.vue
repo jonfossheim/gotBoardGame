@@ -1,6 +1,8 @@
 <template>
 	<div class="aboutContainer">
 		<div class="aboutContainer__inner">
+			<p class="notice">I AM UNDER CONSTRUCTION</p>
+			<br><br>
 			<h2>Game created by Jon Fossheim</h2>
 			<div class="docsContainer">
 				<div class="docsContainer__list">
@@ -75,6 +77,9 @@
 </script>
 
 <style scoped lang="sass">
+	.notice
+		font-size: 60px
+		font-weight: bold
 	.aboutContainer
 		margin: 0 auto
 		width: 90%
