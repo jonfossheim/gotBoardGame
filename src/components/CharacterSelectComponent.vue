@@ -4,6 +4,7 @@
 			<img
 				class="icon"
 				:src="character.icon"
+				:alt="character.name"
 				@click="assignCharacter(character.id)"
 				@mouseover="mouseOver"
 				@mouseleave="mouseOver"
