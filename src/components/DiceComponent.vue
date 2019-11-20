@@ -1,19 +1,15 @@
 <template>
 	<div class="diceContainer">
 		<div class="dice" @click="rollDice()">
-			<transition name="fade">
-				<!--<span>{{ result }}</span>-->
-				<span v-if="result === 1"><i class="fas fa-dice-one"></i></span>
-				<span v-if="result === 2"><i class="fas fa-dice-two"></i></span>
-				<span v-if="result === 3"><i class="fas fa-dice-three"></i></span>
-				<span v-if="result === 4"><i class="fas fa-dice-four"></i></span>
-				<span v-if="result === 5"><i class="fas fa-dice-five"></i></span>
-				<span v-if="result === 6"><i class="fas fa-dice-six"></i></span>
-				<span v-else><i class="fas fa-dice"></i></span>
-			</transition>
+			<i
+				v-for="dice in diceStats"
+				v-show="result === dice.id"
+				:key="dice.id"
+				:id="dice.id"
+				:class="[{spinAnimation : animated },dice.class]"
+				class="fas"
+				@click="spinDice(dice.id)"></i>
 		</div>
-		<span>Roll the Dice above</span>
-		<br>
 		<div class="highRoll">
 			<h3 v-if="result === 6">
 				{{ highroller }} rolled a 6!
@@ -35,8 +31,44 @@
 		components: { TrapModal }
 	})
 	export default class DiceComponent extends Vue {
+		lockTurn = false
+
 		result = 0
+
+		animated = false
+
 		highroller = ''
+
+		diceStats = [
+			{
+				id: 0,
+				class: 'fa-dice'
+			},
+			{
+				id: 1,
+				class: 'fa-dice-one'
+			},
+			{
+				id: 2,
+				class: 'fa-dice-two'
+			},
+			{
+				id: 3,
+				class: 'fa-dice-three'
+			},
+			{
+				id: 4,
+				class: 'fa-dice-four'
+			},
+			{
+				id: 5,
+				class: 'fa-dice-five'
+			},
+			{
+				id: 6,
+				class: 'fa-dice-six'
+			},
+		]
 
 		get player1() {
 			return vxm.player1.player1
@@ -57,6 +89,16 @@
 		newTurn() {
 			vxm.player1.updateTurn()
 			vxm.player2.updateTurn()
+		}
+
+		unlockTurn() {
+			this.lockTurn = false
+		}
+
+		spinDice(id: any) {
+			let self = this
+			self.animated = true
+			setTimeout(() => { self.animated = false }, 700)
 		}
 
 		trap(vxmplayer: any, thisplayer: any) {
@@ -98,58 +140,65 @@
 		}
 
 		rollDice() {
-			this.result = Math.floor(Math.random() * 6) + 1
-			if (this.result === 6) {
-				if (this.player1.turn) {
-					this.highroller = this.player1.name
-					vxm.player1.updatePos(this.result)
-					this.trap(vxm.player1, this.player1)
+			if (!this.lockTurn) {
+				this.lockTurn = true
+				setTimeout(() => {
+					this.unlockTurn()
+				}, 700)
+				this.result = Math.floor(Math.random() * 6) + 1
+				if (this.result === 6) {
+					if (this.player1.turn) {
+						this.highroller = this.player1.name
+						vxm.player1.updatePos(this.result)
+						this.trap(vxm.player1, this.player1)
+					} else {
+						this.highroller = this.player2.name
+						vxm.player2.updatePos(this.result)
+						this.trap(vxm.player2, this.player2)
+					}
 				} else {
-					this.highroller = this.player2.name
-					vxm.player2.updatePos(this.result)
-					this.trap(vxm.player2, this.player2)
+					if (this.player1.turn) {
+						vxm.player1.updatePos(this.result)
+						this.trap(vxm.player1, this.player1)
+					} else {
+						vxm.player2.updatePos(this.result)
+						this.trap(vxm.player2, this.player2)
+					}
+					this.newTurn()
 				}
-			} else {
-				if (this.player1.turn) {
-					vxm.player1.updatePos(this.result)
-					this.trap(vxm.player1, this.player1)
-				} else {
-					vxm.player2.updatePos(this.result)
-					this.trap(vxm.player2, this.player2)
-				}
-				this.newTurn()
+				return this.result
 			}
-			return this.result
 		}
 	}
 </script>
 
 <style lang="sass">
-	.dice
-		margin: 5px auto
-		cursor: pointer
-		display: flex
-		justify-content: center
-		align-items: center
-		font-weight: bolder
-		font-size: 20px
-		border-radius: 3px
-		transition: 0.2s ease
-
-		&:hover
-			transform: scale(1.1)
-
 	.highRoll
 		height: 30px
-		width: 100%
+		text-align: center
 
-	.fade-enter-active, .fade-leave-active
-		transition: opacity .5s
+		.dice
+			margin: 5px auto
+			cursor: pointer
+			display: flex
+			justify-content: center
+			flex-direction: column
+			align-items: center
+			font-weight: bolder
+			font-size: 20px
+			border-radius: 3px
+			transition: 0.2s ease
 
-	.fade-enter, .fade-leave-to
-		opacity: 0
+			&:hover
+				transform: scale(1.1)
 
-	i
+			.fade-enter-active, .fade-leave-active
+				transition: opacity .5s
+
+			.fade-enter, .fade-leave-to
+				opacity: 0
+
+	.fas
 		color: #fff
 		font-size: 60px
 </style>

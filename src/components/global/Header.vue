@@ -9,6 +9,8 @@
 			<RouterLink to="/about">
 				About
 			</RouterLink>
+			<span class="separator">|</span>
+			<a href="https://paypal.me/jonfossheim" target="_blank">Buy me Coffee</a>
 		</nav>
 	</div>
 </template>
@@ -27,8 +29,11 @@
 	.header
 		display: grid
 		width: 100%
-		grid-template-columns: 11fr 1fr
+		grid-template-columns: 10fr 2fr
 		&__link
 			text-decoration: none
 			color: #ecf0f1
+
+	.separator
+		margin: 0 0.5em 0 0.5em
 </style>

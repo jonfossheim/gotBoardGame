@@ -29,3 +29,31 @@
 
 .fade-enter, .fade-leave-to
   opacity: 0
+
+
+.fadeIn-enter-active
+  transform: rotate(0deg)
+
+
+.fadeIn-enter
+  transform: rotate(360deg)
+
+.spinAnimation
+  animation: spin  700ms
+  @-moz-keyframes spin
+    from
+      -moz-transform : rotate(0deg)
+    to
+      -moz-transform : rotate(360deg)
+
+  @-webkit-keyframes spin
+    from
+      -webkit-transform: rotate(0deg)
+    to
+      -webkit-transform : rotate(360deg)
+
+  @keyframes spin
+    from
+      transform : rotate(0deg)
+    to
+      transform : rotate(360deg)
