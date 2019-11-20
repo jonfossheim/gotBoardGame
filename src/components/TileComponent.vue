@@ -2,14 +2,14 @@
 	<div class="tile">
 		<div class="tileInner">
 			<transition name="bounce">
-				<p v-if="player1.tilePos === tile.id">
+				<div v-if="player1.tilePos === tile.id">
 					<img class="playerIcon" :src="player1.icon" :alt="player1.name">
-				</p>
+				</div>
 			</transition>
 			<transition name="bounce">
-				<p v-if="player2.tilePos === tile.id">
+				<div v-if="player2.tilePos === tile.id">
 					<img class="playerIcon" :src="player2.icon" :alt="player2.name">
-				</p>
+				</div>
 			</transition>
 		</div>
 		<p class="watermark">

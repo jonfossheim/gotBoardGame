@@ -2,7 +2,14 @@
 	<div class="diceContainer">
 		<div class="dice" @click="rollDice()">
 			<transition name="fade">
-				<span>{{ result }}</span>
+				<!--<span>{{ result }}</span>-->
+				<span v-if="result === 1"><i class="fas fa-dice-one"></i></span>
+				<span v-if="result === 2"><i class="fas fa-dice-two"></i></span>
+				<span v-if="result === 3"><i class="fas fa-dice-three"></i></span>
+				<span v-if="result === 4"><i class="fas fa-dice-four"></i></span>
+				<span v-if="result === 5"><i class="fas fa-dice-five"></i></span>
+				<span v-if="result === 6"><i class="fas fa-dice-six"></i></span>
+				<span v-else><i class="fas fa-dice"></i></span>
 			</transition>
 		</div>
 		<span>Roll the Dice above</span>
@@ -118,33 +125,31 @@
 </script>
 
 <style lang="sass">
-.dice
-	height: 60px
-	width: 60px
-	margin: 5px auto
-	border: 2px solid black
-	cursor: pointer
-	background: #fff
-	display: flex
-	justify-content: center
-	align-items: center
-	font-weight: bolder
-	font-size: 20px
-	border-radius: 3px
-	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75)
-	-moz-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75)
-	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75)
-	transition: 0.2s ease
-	&:hover
-		transform: scale(1.1)
+	.dice
+		margin: 5px auto
+		cursor: pointer
+		display: flex
+		justify-content: center
+		align-items: center
+		font-weight: bolder
+		font-size: 20px
+		border-radius: 3px
+		transition: 0.2s ease
 
-.highRoll
-	height: 30px
-	width: 100%
+		&:hover
+			transform: scale(1.1)
 
-.fade-enter-active, .fade-leave-active
-	transition: opacity .5s
+	.highRoll
+		height: 30px
+		width: 100%
 
-.fade-enter, .fade-leave-to
-	opacity: 0
+	.fade-enter-active, .fade-leave-active
+		transition: opacity .5s
+
+	.fade-enter, .fade-leave-to
+		opacity: 0
+
+	i
+		color: #fff
+		font-size: 60px
 </style>

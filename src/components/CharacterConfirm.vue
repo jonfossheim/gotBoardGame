@@ -33,10 +33,8 @@
 </script>
 
 <style scoped lang="sass">
-	@import "../styles/partials/buttons"
 	.imgContainer
-		width: 75px
-		height: 125px
+		width: 100px
 
 	.icon
 		width: 100%

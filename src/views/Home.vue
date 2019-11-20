@@ -1,9 +1,11 @@
 <template>
 	<div class="home">
 		<div class="confirmContainer">
-			<CharacterConfirm
-				v-if="player1.name"
-			/>
+			<transition name="bounce">
+				<CharacterConfirm
+					v-if="player1.name"
+				/>
+			</transition>
 		</div>
 		<CharacterSelect />
 	</div>
@@ -25,6 +27,7 @@
 </script>
 
 <style scoped lang="sass">
+@import "../styles/partials/animations"
 .confirmContainer
 	height: 20vh
 	display: flex

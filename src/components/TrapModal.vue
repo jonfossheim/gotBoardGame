@@ -8,7 +8,7 @@
 					</h2>
 				</div>
 				<div class="modal__body">
-					<img class="modal-image" :src="trapmodal.playerIcon" :alt="trapmodal.playerName">
+					<img class="modal__image" :src="trapmodal.playerIcon" :alt="trapmodal.playerName">
 					<br>
 					<p>{{ trapmodal.body }}</p>
 				</div>
@@ -59,7 +59,7 @@
 			max-width: 600px
 			margin: 0px auto
 			padding: 2em 3em
-			background-color: #fff
+			background-color: #212121
 			border-radius: 2px
 			box-shadow: 0 2px 8px rgba(0, 0, 0, .33)
 			transition: all .3s ease
