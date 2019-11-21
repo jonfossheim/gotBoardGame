@@ -12,9 +12,10 @@
 				</div>
 			</transition>
 		</div>
-		<p class="watermark">
-			<span>No.{{ tile.id }}</span>
-		</p>
+		<div class="watermark">
+			<span class="watermark__ifTrap" v-if="tile.trap">( ! )</span>
+			<span class="watermark__tileNo">No.{{ tile.id }}</span>
+		</div>
 	</div>
 </template>
 
@@ -59,11 +60,18 @@
 		padding: 0.3em
 		z-index: 100
 	.watermark
-		position: absolute
-		bottom: 2px
-		right: 5px
 		z-index: -100
-		color: lightslategray
+		color: #bdc3c7
+		&__tileNo
+			position: absolute
+			bottom: 2px
+			right: 5px
+		&__ifTrap
+			color: crimson
+			font-weight: bold
+			position: absolute
+			top: 40%
+			left: 40%
 	.playerIcon
 		width: 50px
 

@@ -70,6 +70,11 @@
 			},
 		]
 
+		timeouts = {
+			long: 600,
+			short: 400
+			}
+
 		get player1() {
 			return vxm.player1.player1
 		}
@@ -95,10 +100,10 @@
 			this.lockTurn = false
 		}
 
-		spinDice(id: any) {
+		spinDice() {
 			let self = this
 			self.animated = true
-			setTimeout(() => { self.animated = false }, 700)
+			setTimeout(() => { self.animated = false }, this.timeouts.long)
 		}
 
 		trap(vxmplayer: any, thisplayer: any) {
@@ -144,25 +149,41 @@
 				this.lockTurn = true
 				setTimeout(() => {
 					this.unlockTurn()
-				}, 700)
+				}, this.timeouts.long)
 				this.result = Math.floor(Math.random() * 6) + 1
 				if (this.result === 6) {
 					if (this.player1.turn) {
 						this.highroller = this.player1.name
-						vxm.player1.updatePos(this.result)
-						this.trap(vxm.player1, this.player1)
+						setTimeout(() => {
+							vxm.player1.updatePos(this.result)
+							setTimeout(() => {
+								this.trap(vxm.player1, this.player1)
+							}, this.timeouts.short)
+						}, this.timeouts.long)
 					} else {
 						this.highroller = this.player2.name
-						vxm.player2.updatePos(this.result)
-						this.trap(vxm.player2, this.player2)
+						setTimeout(() => {
+							vxm.player2.updatePos(this.result)
+							setTimeout(() => {
+								this.trap(vxm.player2, this.player2)
+							}, this.timeouts.short)
+						}, this.timeouts.long)
 					}
 				} else {
 					if (this.player1.turn) {
-						vxm.player1.updatePos(this.result)
-						this.trap(vxm.player1, this.player1)
+						setTimeout(() => {
+							vxm.player1.updatePos(this.result)
+							setTimeout(() => {
+								this.trap(vxm.player1, this.player1)
+							}, this.timeouts.short)
+						}, this.timeouts.long)
 					} else {
-						vxm.player2.updatePos(this.result)
-						this.trap(vxm.player2, this.player2)
+						setTimeout(() => {
+							vxm.player2.updatePos(this.result)
+							setTimeout(() => {
+								this.trap(vxm.player2, this.player2)
+							}, this.timeouts.short)
+						}, this.timeouts.long)
 					}
 					this.newTurn()
 				}
