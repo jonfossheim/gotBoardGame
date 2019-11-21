@@ -13,7 +13,7 @@
 			</transition>
 		</div>
 		<div class="watermark">
-			<span class="watermark__ifTrap" v-if="tile.trap">( ! )</span>
+			<img v-if="tile.trap" class="watermark__ifTrap" :src="tile.icon" />
 			<span class="watermark__tileNo">No.{{ tile.id }}</span>
 		</div>
 	</div>
@@ -61,15 +61,16 @@
 		z-index: -100
 		color: #bdc3c7
 		&__tileNo
+			z-index: -100
 			position: absolute
 			bottom: 2px
 			right: 5px
 		&__ifTrap
-			color: crimson
-			font-weight: bold
+			z-index: -100
 			position: absolute
-			top: 40%
-			left: 40%
+			width: 75px
+			top: 10px
+			left: 10px
 	.playerIcon
 		width: 100%
 

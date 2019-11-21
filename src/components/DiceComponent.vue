@@ -217,32 +217,9 @@
 	.fas
 		color: #fff
 		font-size: 60px
+		cursor: pointer
 	.bounce
 		animation: bounce 0.8s
 		animation-direction: alternate
 		animation-iteration-count: infinite
-
-	.tooltip .tooltiptext
-		width: 120px
-		background-color: black
-		color: #fff
-		text-align: center
-		border-radius: 6px
-		padding: 5px 0
-		position: absolute
-		z-index: 1
-		top: 150%
-		left: 50%
-		margin-left: -60px
-
-	.tooltip .tooltiptext::after
-		content: ""
-		position: absolute
-		bottom: 100%
-		left: 50%
-		margin-left: -5px
-		border-width: 5px
-		border-style: solid
-		border-color: transparent transparent black transparent
-
 </style>
