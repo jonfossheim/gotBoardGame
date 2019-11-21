@@ -33,31 +33,24 @@
 
 		hover = false
 
-		excludeId = this.characters[Math.floor(Math.random() * this.characters.length)].id
-
 		get characters() {
 			return vxm.characters.characters
 		}
 
-		randomId() {
-
-		}
-
-		setPlayer2(p1Character: any) {
-			let excludeIndex = this.characters.map(function (item: any) {
-				return item.id
-			}).indexOf(p1Character)
-			let id = this.characters[Math.floor(Math.random() * this.characters.length)].id
-			if (id !== excludeIndex) {
-				vxm.player2.getCharacter(id)
-			} else {
-				let id = this.characters[Math.floor(Math.random() * this.characters.length)].id
-			}
-		}
-
-		assignCharacter(id: any) {
+		assignCharacter(id: number) {
 			vxm.player1.getCharacter(id)
 			this.setPlayer2(id)
+		}
+
+		setPlayer2(excludeId: number) {
+			let randomId = this.characters[Math.floor(Math.random() * this.characters.length)].id
+			if (randomId === excludeId) {
+				while (randomId === excludeId) {
+					randomId = this.characters[Math.floor(Math.random() * this.characters.length)].id
+				}
+			} else {
+				vxm.player2.getCharacter(randomId)
+			}
 		}
 
 		mouseOver() {
