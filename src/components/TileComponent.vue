@@ -55,8 +55,6 @@
 			@include fontSize(14px)
 	.tileInner
 		display: flex
-		justify-content: space-around
-		align-items: center
 		padding: 0.3em
 		z-index: 100
 	.watermark

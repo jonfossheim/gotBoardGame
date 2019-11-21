@@ -153,7 +153,7 @@
 				this.lockTurn = true
 				setTimeout(() => {
 					this.unlockTurn()
-				}, this.timeouts.long)
+				}, 1000)
 				this.result = Math.floor(Math.random() * 6) + 1
 				if (this.result === 6) {
 					if (this.player1.turn) {
@@ -201,27 +201,6 @@
 	.highRoll
 		height: 30px
 		text-align: center
-
-		.dice
-			margin: 5px auto
-			cursor: pointer
-			display: flex
-			justify-content: center
-			flex-direction: column
-			align-items: center
-			font-weight: bolder
-			font-size: 20px
-			border-radius: 3px
-			transition: 0.2s ease
-
-			&:hover
-				transform: scale(1.1)
-
-			.fade-enter-active, .fade-leave-active
-				transition: opacity .5s
-
-			.fade-enter, .fade-leave-to
-				opacity: 0
 
 	.fas
 		color: #fff
