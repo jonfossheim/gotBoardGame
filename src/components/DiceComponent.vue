@@ -4,9 +4,9 @@
 			<i
 				v-for="dice in diceStats"
 				v-show="result === dice.id"
-				:key="dice.id"
 				:id="dice.id"
-				:class="[{spinAnimation : animated },dice.class]"
+				:key="dice.id"
+				:class="[{spinAnimation : animated }, dice.class]"
 				class="fas"
 				@click="spinDice(dice.id)"></i>
 		</div>
@@ -73,7 +73,7 @@
 		timeouts = {
 			long: 600,
 			short: 400
-			}
+		}
 
 		get player1() {
 			return vxm.player1.player1
@@ -103,7 +103,9 @@
 		spinDice() {
 			let self = this
 			self.animated = true
-			setTimeout(() => { self.animated = false }, this.timeouts.long)
+			setTimeout(() => {
+				self.animated = false
+			}, this.timeouts.long)
 		}
 
 		trap(vxmplayer: any, thisplayer: any) {
@@ -114,33 +116,35 @@
 				player: thisplayer,
 				message: trapMessage
 			}
-			switch (thisplayer.tilePos) {
-				case 7:
-					vxmplayer.trapInvoke(penalty)
-					vxm.trapmodal.setModalData(payload)
-					vxm.trapmodal.updateOpen(true)
-					break
-				case 13:
-					vxmplayer.trapInvoke(penalty)
-					vxm.trapmodal.setModalData(payload)
-					vxm.trapmodal.updateOpen(true)
-					break
-				case 19:
-					vxmplayer.trapInvoke(penalty)
-					vxm.trapmodal.setModalData(payload)
-					vxm.trapmodal.updateOpen(true)
-					break
-				case 22:
-					vxmplayer.trapInvoke(penalty)
-					vxm.trapmodal.setModalData(payload)
-					vxm.trapmodal.updateOpen(true)
-					break
-				case 29:
-					vxmplayer.trapInvoke(penalty)
-					vxm.trapmodal.setModalData(payload)
-					vxm.trapmodal.updateOpen(true)
-					break
-				default:
+			if (thisplayer.tilePos < 30) {
+				switch (thisplayer.tilePos) {
+					case 7:
+						vxmplayer.trapInvoke(penalty)
+						vxm.trapmodal.setModalData(payload)
+						vxm.trapmodal.updateOpen(true)
+						break
+					case 13:
+						vxmplayer.trapInvoke(penalty)
+						vxm.trapmodal.setModalData(payload)
+						vxm.trapmodal.updateOpen(true)
+						break
+					case 19:
+						vxmplayer.trapInvoke(penalty)
+						vxm.trapmodal.setModalData(payload)
+						vxm.trapmodal.updateOpen(true)
+						break
+					case 22:
+						vxmplayer.trapInvoke(penalty)
+						vxm.trapmodal.setModalData(payload)
+						vxm.trapmodal.updateOpen(true)
+						break
+					case 29:
+						vxmplayer.trapInvoke(penalty)
+						vxm.trapmodal.setModalData(payload)
+						vxm.trapmodal.updateOpen(true)
+						break
+					default:
+				}
 			}
 		}
 

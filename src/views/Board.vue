@@ -12,13 +12,12 @@
 <script lang="ts">
 	import { Component, Vue } from 'vue-property-decorator'
 	import PlayerDashboard from '@/components/PlayerDashboard.vue'
-	import TileComponent from '@/components/TileComponent.vue'
 	import TileDeck from '@/components/TileDeck.vue'
 	import { vxm } from '@/store'
 	import WinnerComponent from '@/components/WinnerComponent.vue'
 
 	@Component({
-		components: { WinnerComponent, TileDeck, TileComponent, PlayerDashboard }
+		components: { WinnerComponent, TileDeck, PlayerDashboard }
 	})
 	export default class Board extends Vue {
 		get player1() {
