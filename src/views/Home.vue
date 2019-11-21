@@ -1,5 +1,5 @@
 <template>
-	<div class="home">
+	<div>
 		<div class="topSide">
 			<div class="confirmContainer">
 				<transition name="bounce">

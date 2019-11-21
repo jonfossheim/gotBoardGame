@@ -29,7 +29,7 @@
 	.header
 		display: grid
 		width: 100%
-		grid-template-columns: 9fr 3fr
+		grid-template-columns: 8fr 4fr
 		&__link
 			text-decoration: none
 			color: #ecf0f1
