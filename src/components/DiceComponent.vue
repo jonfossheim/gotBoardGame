@@ -192,7 +192,9 @@
 							}, this.timeouts.short)
 						}, this.timeouts.long)
 					}
-					this.newTurn()
+					setTimeout(() => {
+						this.newTurn()
+					}, 800)
 				}
 				return this.result
 			}
