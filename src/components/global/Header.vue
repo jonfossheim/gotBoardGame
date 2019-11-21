@@ -10,7 +10,7 @@
 				About
 			</RouterLink>
 			<span class="separator">|</span>
-			<a href="https://paypal.me/jonfossheim" target="_blank">Buy me Coffee</a>
+			<a href="https://paypal.me/jonfossheim" rel="noreferrer noopener" target="_blank">Buy me Coffee</a>
 		</nav>
 	</div>
 </template>
