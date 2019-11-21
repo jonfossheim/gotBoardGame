@@ -31,34 +31,34 @@ export default class Player1 extends VuexModule {
 		this.player1.populated = true
 
 		if (this.player1.name === 'Petyr Baelish') {
-			this.player1.icon = './characters/petyr.png'
+			this.player1.icon = './characters/petyr.webp'
 		}
 		if (this.player1.name === 'Davos Seaworth') {
-			this.player1.icon = './characters/davos.png'
+			this.player1.icon = './characters/davos.webp'
 		}
 		if (this.player1.name === 'Tyrion Lannister') {
-			this.player1.icon = './characters/tyrion.png'
+			this.player1.icon = './characters/tyrion.webp'
 		}
 		if (this.player1.name === 'Bronn') {
-			this.player1.icon = './characters/bronn.png'
+			this.player1.icon = './characters/bronn.webp'
 		}
 		if (this.player1.name === 'Jaime Lannister') {
-			this.player1.icon = './characters/jaime.png'
+			this.player1.icon = './characters/jaime.webp'
 		}
 		if (this.player1.name === 'Daenerys Targaryen') {
-			this.player1.icon = './characters/daenerys.png'
+			this.player1.icon = './characters/daenerys.webp'
 		}
 		if (this.player1.name === 'Sandor Clegane') {
-			this.player1.icon = './characters/sandor.png'
+			this.player1.icon = './characters/sandor.webp'
 		}
 		if (this.player1.name === 'Jon Snow') {
-			this.player1.icon = './characters/jon.png'
+			this.player1.icon = './characters/jon.webp'
 		}
 		if (this.player1.name === 'Arya Stark') {
-			this.player1.icon = './characters/arya.png'
+			this.player1.icon = './characters/arya.webp'
 		}
 		if (this.player1.name === 'Brienne of Tarth') {
-			this.player1.icon = './characters/brienne.png'
+			this.player1.icon = './characters/brienne.webp'
 		}
 	}
 
