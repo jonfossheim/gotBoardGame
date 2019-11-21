@@ -35,6 +35,7 @@
 <style scoped lang="sass">
 	.imgContainer
 		width: 100px
+		margin-bottom: 0.5em
 
 	.icon
 		width: 100%
@@ -46,6 +47,7 @@
 		flex-wrap: wrap
 	.selectDetails
 		padding: 1em
+		margin-right: 1em
 	.confirm
 		display: flex
 		justify-content: center

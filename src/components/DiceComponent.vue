@@ -6,7 +6,7 @@
 				v-show="result === dice.id"
 				:id="dice.id"
 				:key="dice.id"
-				:class="[{spinAnimation : animated }, dice.class]"
+				:class="[{spinAnimation : animated },{bounce : !gamebegin}, dice.class]"
 				class="fas"
 				@click="spinDice(dice.id)"></i>
 		</div>
@@ -32,6 +32,8 @@
 	})
 	export default class DiceComponent extends Vue {
 		lockTurn = false
+
+		gamebegin = false
 
 		result = 0
 
@@ -149,6 +151,7 @@
 		}
 
 		rollDice() {
+			this.gamebegin = true
 			if (!this.lockTurn) {
 				this.lockTurn = true
 				setTimeout(() => {
@@ -198,6 +201,15 @@
 </script>
 
 <style lang="sass">
+	@import "../styles/partials/mixins"
+	.startGame
+		margin-top: 0.7em
+		width: 100%
+		&__inner
+			width: 150px
+			background-color: #e74c3c
+			margin: 0 auto
+			@include border-radius(6px)
 	.highRoll
 		height: 30px
 		text-align: center
@@ -205,4 +217,32 @@
 	.fas
 		color: #fff
 		font-size: 60px
+	.bounce
+		animation: bounce 0.8s
+		animation-direction: alternate
+		animation-iteration-count: infinite
+
+	.tooltip .tooltiptext
+		width: 120px
+		background-color: black
+		color: #fff
+		text-align: center
+		border-radius: 6px
+		padding: 5px 0
+		position: absolute
+		z-index: 1
+		top: 150%
+		left: 50%
+		margin-left: -60px
+
+	.tooltip .tooltiptext::after
+		content: ""
+		position: absolute
+		bottom: 100%
+		left: 50%
+		margin-left: -5px
+		border-width: 5px
+		border-style: solid
+		border-color: transparent transparent black transparent
+
 </style>
