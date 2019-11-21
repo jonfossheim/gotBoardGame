@@ -73,6 +73,6 @@
 			top: 40%
 			left: 40%
 	.playerIcon
-		width: 50px
+		width: 100%
 
 </style>
