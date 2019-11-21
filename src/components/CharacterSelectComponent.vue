@@ -30,16 +30,27 @@
 	export default class CharacterSelectComponent extends Vue {
 		@Prop()
 		character!: any
-
 		hover = false
 
 		get characters() {
 			return vxm.characters.characters
 		}
+		get player1() {
+			return vxm.player1.player1
+		}
+
+		get player2() {
+			return vxm.player2.player2
+		}
 
 		assignCharacter(id: number) {
-			vxm.player1.getCharacter(id)
-			this.setPlayer2(id)
+			if (!this.player1.populated) {
+				vxm.player1.getCharacter(id)
+				vxm.player2.updateSelect()
+			} else {
+				vxm.player2.getCharacter(id)
+				vxm.player1.updateSelect()
+			}
 		}
 
 		setPlayer2(excludeId: number) {

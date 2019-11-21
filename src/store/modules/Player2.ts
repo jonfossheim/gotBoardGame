@@ -4,12 +4,14 @@ import Axios from 'axios'
 @Module({ namespacedPath: 'player2/' })
 export default class Player2 extends VuexModule {
 	player2: any = {
+		id: 0,
 		name: '',
 		title: '',
 		birth: '',
 		icon: '',
 		tilePos: 0,
-		turn: false
+		turn: false,
+		populated: false
 	}
 
 	@action
@@ -20,11 +22,13 @@ export default class Player2 extends VuexModule {
 
 	@mutation
 	setCharacter(character: any) {
+		this.player2.id = character.id
 		this.player2.name = character.name
 		this.player2.title = character.aliases[0]
 		this.player2.birth = 'Birth: ' + character.born
 		this.player2.tilePos = 0
 		this.player2.turn = false
+		this.player2.populated = true
 
 		if (this.player2.name === 'Petyr Baelish') {
 			this.player2.icon = './characters/petyr.png'
@@ -68,5 +72,9 @@ export default class Player2 extends VuexModule {
 	@mutation
 	updateTurn() {
 		this.player2.turn = !this.player2.turn
+	}
+	@mutation
+	updateSelect() {
+		this.player2.populated = !this.player2.populated
 	}
 }
