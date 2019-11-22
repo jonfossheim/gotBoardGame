@@ -2,16 +2,16 @@
 	<div class="diceContainer">
 		<div class="dice" @click="rollDice()">
 			<i
-				v-for="dice in diceStats"
-				v-show="result === dice.id"
-				:id="dice.id"
-				:key="dice.id"
-				:class="[{spinAnimation : animated },{bounce : !gamebegin}, dice.class]"
+				v-for="side in dice.sides"
+				v-show="dice.result === side.id"
+				:id="side.id"
+				:key="side.id"
+				:class="[{spinAnimation : animated },{bounce : !dice.gameStarted}, side.class]"
 				class="fas"
 				@click="spinDice(dice.id)"></i>
 		</div>
 		<div class="highRoll">
-			<h3 v-if="result === 6">
+			<h3 v-if="dice.result === 6">
 				{{ highroller }} rolled a 6!
 			</h3>
 		</div>
@@ -33,48 +33,17 @@
 	export default class DiceComponent extends Vue {
 		lockTurn = false
 
-		gamebegin = false
-
-		result = 0
-
 		animated = false
 
 		highroller = ''
 
-		diceStats = [
-			{
-				id: 0,
-				class: 'fa-dice'
-			},
-			{
-				id: 1,
-				class: 'fa-dice-one'
-			},
-			{
-				id: 2,
-				class: 'fa-dice-two'
-			},
-			{
-				id: 3,
-				class: 'fa-dice-three'
-			},
-			{
-				id: 4,
-				class: 'fa-dice-four'
-			},
-			{
-				id: 5,
-				class: 'fa-dice-five'
-			},
-			{
-				id: 6,
-				class: 'fa-dice-six'
-			},
-		]
-
 		timeouts = {
 			long: 600,
 			short: 400
+		}
+
+		get dice() {
+			return vxm.dice.dice
 		}
 
 		get player1() {
@@ -111,14 +80,14 @@
 		}
 
 		trap(vxmplayer: any, thisplayer: any) {
-			let currentTile = this.tiles[thisplayer.tilePos - 1]
-			let penalty = currentTile.penalty
-			let trapMessage = thisplayer.name + ' ' + currentTile.message
-			let payload = {
-				player: thisplayer,
-				message: trapMessage
-			}
 			if (thisplayer.tilePos < 30) {
+				let currentTile = this.tiles[thisplayer.tilePos - 1]
+				let penalty = currentTile.penalty
+				let trapMessage = thisplayer.name + ' ' + currentTile.message
+				let payload = {
+					player: thisplayer,
+					message: trapMessage
+				}
 				switch (thisplayer.tilePos) {
 					case 7:
 						vxmplayer.trapInvoke(penalty)
@@ -151,18 +120,19 @@
 		}
 
 		rollDice() {
-			this.gamebegin = true
+			vxm.dice.startGame()
 			if (!this.lockTurn) {
 				this.lockTurn = true
 				setTimeout(() => {
 					this.unlockTurn()
 				}, 1000)
-				this.result = Math.floor(Math.random() * 6) + 1
-				if (this.result === 6) {
+				let roll = Math.floor(Math.random() * 6) + 1
+				vxm.dice.setResult(roll)
+				if (this.dice.result === 6) {
 					if (this.player1.turn) {
 						this.highroller = this.player1.name
 						setTimeout(() => {
-							vxm.player1.updatePos(this.result)
+							vxm.player1.updatePos(this.dice.result)
 							setTimeout(() => {
 								this.trap(vxm.player1, this.player1)
 							}, this.timeouts.short)
@@ -170,7 +140,7 @@
 					} else {
 						this.highroller = this.player2.name
 						setTimeout(() => {
-							vxm.player2.updatePos(this.result)
+							vxm.player2.updatePos(this.dice.result)
 							setTimeout(() => {
 								this.trap(vxm.player2, this.player2)
 							}, this.timeouts.short)
@@ -179,14 +149,14 @@
 				} else {
 					if (this.player1.turn) {
 						setTimeout(() => {
-							vxm.player1.updatePos(this.result)
+							vxm.player1.updatePos(this.dice.result)
 							setTimeout(() => {
 								this.trap(vxm.player1, this.player1)
 							}, this.timeouts.short)
 						}, this.timeouts.long)
 					} else {
 						setTimeout(() => {
-							vxm.player2.updatePos(this.result)
+							vxm.player2.updatePos(this.dice.result)
 							setTimeout(() => {
 								this.trap(vxm.player2, this.player2)
 							}, this.timeouts.short)
@@ -196,7 +166,6 @@
 						this.newTurn()
 					}, 800)
 				}
-				return this.result
 			}
 		}
 	}
@@ -207,11 +176,13 @@
 	.startGame
 		margin-top: 0.7em
 		width: 100%
+
 		&__inner
 			width: 150px
 			background-color: #e74c3c
 			margin: 0 auto
 			@include border-radius(6px)
+
 	.highRoll
 		height: 30px
 		text-align: center
@@ -220,6 +191,7 @@
 		color: #fff
 		font-size: 60px
 		cursor: pointer
+
 	.bounce
 		animation: bounce 0.8s
 		animation-direction: alternate
