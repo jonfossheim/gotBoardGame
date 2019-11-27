@@ -53,17 +53,6 @@
 			}
 		}
 
-		setPlayer2(excludeId: number) {
-			let randomId = this.characters[Math.floor(Math.random() * this.characters.length)].id
-			if (randomId === excludeId) {
-				while (randomId === excludeId) {
-					randomId = this.characters[Math.floor(Math.random() * this.characters.length)].id
-				}
-			} else {
-				vxm.player2.getCharacter(randomId)
-			}
-		}
-
 		mouseOver() {
 			this.hover = !this.hover
 		}
