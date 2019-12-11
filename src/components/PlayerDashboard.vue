@@ -19,7 +19,6 @@
 		components: { Player1Component, DiceComponent, Player2Component }
 	})
 	export default class PlayerDashboard extends Vue {
-	turn = true
 	}
 </script>
 

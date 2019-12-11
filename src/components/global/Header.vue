@@ -1,17 +1,10 @@
 <template>
 	<div class="header">
-		<h1 class="appTitle" >
+		<h1 class="appTitle">
 			<RouterLink class="header__link" to="/">
 				Race for the Iron Throne
 			</RouterLink>
 		</h1>
-		<nav id="nav">
-			<RouterLink to="/about">
-				About
-			</RouterLink>
-			<span class="separator">|</span>
-			<a href="https://paypal.me/jonfossheim" target="_blank">Buy me Coffee</a>
-		</nav>
 	</div>
 </template>
 
@@ -29,11 +22,9 @@
 	.header
 		display: grid
 		width: 100%
-		grid-template-columns: 9fr 3fr
+		grid-template-columns: 8fr 4fr
+		height: 70px
 		&__link
 			text-decoration: none
 			color: #ecf0f1
-
-	.separator
-		margin: 0 0.5em 0 0.5em
 </style>

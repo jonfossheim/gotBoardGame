@@ -2,11 +2,11 @@
 	<div>
 		<div class="confirmContainer">
 			<div class="imgContainer">
-				<img class="icon" :src="player1.icon">
+				<img class="icon" :src="player2.icon">
 			</div>
 			<div class="selectDetails">
-				<p>Player1 has selected:</p>
-				<p> {{ player1.name }}</p>
+				<p>Player2 has selected:</p>
+				<p> {{ player2.name }}</p>
 			</div>
 		</div>
 	</div>
@@ -15,14 +15,13 @@
 <script lang="ts">
 	import { Component, Vue } from 'vue-property-decorator'
 	import { vxm } from '@/store'
-	import RoundedButton from '@/components/RoundedButton.vue'
 
 	@Component({
-		components: { RoundedButton }
+		components: { }
 	})
-	export default class CharacterConfirm extends Vue {
-		get player1() {
-			return vxm.player1.player1
+	export default class CharacterConfirm2 extends Vue {
+		get player2() {
+			return vxm.player2.player2
 		}
 	}
 </script>
@@ -31,11 +30,9 @@
 	.imgContainer
 		width: 100px
 		margin-bottom: 0.5em
-
 	.icon
 		width: 100%
 		margin: 0 auto
-
 	.confirmContainer
 		display: flex
 		flex-direction: row-reverse
@@ -43,7 +40,4 @@
 	.selectDetails
 		padding: 1em
 		margin-right: 1em
-	.confirm
-		display: flex
-		justify-content: center
 </style>
