@@ -7,7 +7,6 @@ export default class Player1 extends VuexModule {
 		id: 0,
 		name: '',
 		title: '',
-		birth: '',
 		icon: '',
 		tilePos: 0,
 		turn: true,
@@ -25,7 +24,6 @@ export default class Player1 extends VuexModule {
 		this.player1.id = character.id
 		this.player1.name = character.name
 		this.player1.title = character.aliases[0]
-		this.player1.birth = 'Birth: ' + character.born
 		this.player1.tilePos = 0
 		this.player1.turn = true
 		this.player1.populated = true

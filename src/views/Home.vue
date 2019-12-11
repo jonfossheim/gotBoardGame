@@ -8,16 +8,17 @@
 					/>
 				</transition>
 				<transition name="bounce">
+					<div v-if="player1.name && player2.name" class="confirm">
+						<RouterLink class="btn btn__fixed" to="/board">
+							Confirm Selection
+						</RouterLink>
+					</div>
+				</transition>
+				<transition name="bounce">
 					<CharacterConfirm2 v-if="player2.name" />
 				</transition>
 			</div>
-			<transition name="bounce">
-				<div v-if="player1.name && player2.name" class="confirm">
-					<RouterLink class="btn" to="/board">
-						Confirm Selection
-					</RouterLink>
-				</div>
-			</transition>
+
 		</div>
 		<CharacterSelect />
 	</div>
@@ -54,4 +55,7 @@
 	flex-direction: row
 	justify-content: space-around
 	margin-bottom: 1.5em
+
+.btn__fixed
+	height: 50px
 </style>
