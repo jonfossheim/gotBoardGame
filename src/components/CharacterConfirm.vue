@@ -5,7 +5,7 @@
 				<img class="icon" :src="player1.icon" />
 			</div>
 			<div class="selectDetails">
-				<p>Player1 selected:</p>
+				<p>Player1 has selected:</p>
 				<p>{{ player1.name }}</p>
 			</div>
 		</div>
